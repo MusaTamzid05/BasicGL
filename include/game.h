@@ -20,10 +20,8 @@ namespace Engine {
         private:
 
             std::unique_ptr<Display> m_display;
-            std::unique_ptr<OpenGLUtil::Shader> m_shader;
 
             void update_screen();
-            void update_camera();
 
             void process();
 

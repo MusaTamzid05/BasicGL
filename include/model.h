@@ -15,14 +15,14 @@ namespace OpenGLUtil {
 
         public:
 
-            Model();
+            Model(const std::string& shader_path);
             virtual ~Model() {}
-            void draw(Shader shader);
+            void draw();
 
         protected:
 
             std::vector<std::shared_ptr<Mesh>> meshes;
-
+            std::shared_ptr<Shader> m_shader;
     };
 
 };
