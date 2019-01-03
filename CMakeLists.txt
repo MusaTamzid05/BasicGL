@@ -49,6 +49,7 @@ set(SOURCE_FILES
     src/display.cpp
     src/camera.cpp
     src/game.cpp
+    src/model.cpp
     )
 
 add_executable(gl_play  ${SOURCE_FILES})

@@ -2,8 +2,9 @@
 #define MODEL_H
 
 #include "shader.h"
+#include "mesh.h"
 #include <memory>
-#include <string>
+#include <vector>
 
 
 
@@ -14,8 +15,13 @@ namespace OpenGLUtil {
 
         public:
 
-            Model(const std::string& filepath = "");
-            virtual void draw(Shader  shader) = 0;
+            Model();
+            virtual ~Model() {}
+            void draw(Shader shader);
+
+        protected:
+
+            std::vector<std::shared_ptr<Mesh>> meshes;
 
     };
 

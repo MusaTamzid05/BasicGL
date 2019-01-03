@@ -12,7 +12,7 @@ namespace OpenGLUtil {
 
             Mesh() {}
             virtual ~Mesh() {}
-            virtual void draw(std::shared_ptr<Shader> shader) = 0;
+            virtual void draw(Shader shader) = 0;
 
         protected:
             virtual void init_mesh() = 0;
