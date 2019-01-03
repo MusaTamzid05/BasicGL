@@ -15,7 +15,12 @@ namespace OpenGLUtil {
             virtual void draw(Shader shader) = 0;
 
         protected:
+
             virtual void init_mesh() = 0;
+
+            unsigned int VAO;
+            unsigned int VBO;
+            unsigned int EBO;
     };
 
 };

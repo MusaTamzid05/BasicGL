@@ -1,6 +1,7 @@
 #include "const.h"
 
 #include "game.h"
+#include "rect_model.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -16,6 +17,7 @@ namespace Engine {
         if(!update_camera_flag)
             std::cerr << "warning camera will not update,to update ,turn this flag on and update the shader.\n";
 
+        m_model = std::make_unique<OpenGLUtil::RectModel>();
     }
 
     void Game::run() {
