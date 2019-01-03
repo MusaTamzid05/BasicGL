@@ -5,6 +5,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+
 namespace Engine {
 
     Game::Game(bool update_camera):
@@ -15,6 +16,7 @@ namespace Engine {
 
         if(!update_camera_flag)
             std::cerr << "warning camera will not update,to update ,turn this flag on and update the shader.\n";
+
     }
 
     void Game::run() {
@@ -41,8 +43,7 @@ namespace Engine {
     void Game::process() {
 
         if(m_model == nullptr) {
-
-            std::cerr << "load the model first.\n";
+            std::cout << "model is not set yet.\n";
             return;
         }
 

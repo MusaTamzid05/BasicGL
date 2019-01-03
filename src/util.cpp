@@ -4,6 +4,8 @@
 
 #include <glad/glad.h>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 namespace Util {
 
@@ -64,6 +66,52 @@ namespace Util {
 
 
         std::cout << "============ ================\n";
+    }
+
+
+    std::vector<float> read_cordinates_from_file(const std::string& filepath) {
+
+        std::vector<float> coordinates;
+
+        std::ifstream input_file(filepath , std::ifstream::in);
+
+        if(!input_file.is_open()) {
+
+            std::cerr << "Could not open " << filepath << ".\n";
+            return coordinates;
+        }
+
+        std::string line;
+
+        while(std::getline(input_file , line)) 
+            add_coordinate_from(line , coordinates);
+
+
+        input_file.close();
+
+        std::cout << "Total coordinates found : " << coordinates.size() << "\n";
+        return coordinates;
+    }
+
+
+    std::vector<std::string> split_string(const std::string& str , char dilimeter) {
+
+        std::stringstream ss(str);
+        std::vector<std::string> result;
+        std::string buff;
+
+        while(std::getline(ss, buff , dilimeter))
+            result.push_back(buff);
+
+        return result;
+    }
+
+    void add_coordinate_from(const std::string& str , std::vector<float>& coordinates) {
+
+        std::vector<std::string> result = split_string(str , ',');
+
+        for(std::string number : result) 
+            coordinates.push_back(atof(number.c_str()));
     }
 
 };
