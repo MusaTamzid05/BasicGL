@@ -12,7 +12,7 @@ namespace Engine {
     float Display::last_mouse_y = Const::HEIGHT / 2.0f;
     float Display::delta_time = 0.0f;
 
-    Display::Display(const std::string& window_name, bool enable_depth_test ):m_close(false) , last_frame(0.0f) {
+    Display::Display(const std::string& window_name, bool enable_depth_test , bool update_camera):m_close(false) , last_frame(0.0f)  {
 
         glfwInit();
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR , 3);
@@ -39,6 +39,8 @@ namespace Engine {
 
         if(enable_depth_test)
             glEnable(GL_DEPTH_TEST);
+
+
     }
 
     Display::~Display() {
@@ -108,7 +110,7 @@ namespace Engine {
     void Display::clear() {
 
 
-        glClearColor(0.0f , 0.0f , 0.0f , 1.0f);
+        glClearColor(0.2f , 0.3f , 0.3f , 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     }

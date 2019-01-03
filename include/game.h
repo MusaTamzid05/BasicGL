@@ -2,8 +2,10 @@
 #define GAME_H
 
 #include <memory>
+
 #include "display.h"
 #include "shader.h"
+#include "model.h"
 
 namespace Engine {
 
@@ -11,7 +13,7 @@ namespace Engine {
 
         public:
 
-            explicit Game();
+            explicit Game(bool update_camera = false);
             virtual ~Game() {}
             void run();
 
@@ -24,6 +26,9 @@ namespace Engine {
             void update_camera();
 
             void process();
+
+            bool update_camera_flag;
+            std::unique_ptr<OpenGLUtil::Model> m_model;
 
     };
 }

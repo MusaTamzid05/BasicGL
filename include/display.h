@@ -17,7 +17,7 @@ namespace Engine {
 
         public:
 
-            Display(const std::string& window_name , bool enable_depth_test = true);
+            Display(const std::string& window_name , bool enable_depth_test = true , bool update_camera = false);
             virtual ~Display();
 
             void process_input();

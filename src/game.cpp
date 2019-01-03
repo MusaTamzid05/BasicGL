@@ -7,17 +7,20 @@
 
 namespace Engine {
 
-    Game::Game():
+    Game::Game(bool update_camera):
         m_display(std::make_unique<Display>("Window")),
-        m_shader(std::make_unique<OpenGLUtil::Shader>("../shaders/model_loading.vs","../shaders/model_loading.fs")){
+        m_shader(std::make_unique<OpenGLUtil::Shader>("../shaders/model_loading.vs","../shaders/model_loading.fs")),
+    update_camera_flag(update_camera){
 
+
+        if(!update_camera_flag)
+            std::cerr << "warning camera will not update,to update ,turn this flag on and update the shader.\n";
     }
 
     void Game::run() {
 
         while(!m_display->is_close()) {
             update_screen();
-            update_camera();
             process();
             m_display->update();
         }
@@ -28,10 +31,22 @@ namespace Engine {
         
         m_display->update_frame();
         m_display->process_input();
+
+        if(update_camera_flag)
+            update_camera();
+
         m_display->clear();
     }
 
     void Game::process() {
+
+        if(m_model == nullptr) {
+
+            std::cerr << "load the model first.\n";
+            return;
+        }
+
+        m_model->draw(*m_shader);
     }
 
     void Game::update_camera() {
