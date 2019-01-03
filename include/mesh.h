@@ -11,7 +11,7 @@ namespace OpenGLUtil {
         public:
 
             Mesh() {}
-            virtual ~Mesh() {}
+            virtual ~Mesh();
             virtual void draw(Shader shader) = 0;
 
         protected:

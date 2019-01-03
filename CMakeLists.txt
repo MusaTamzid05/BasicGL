@@ -50,6 +50,7 @@ set(SOURCE_FILES
     src/camera.cpp
     src/game.cpp
     src/model.cpp
+    src/mesh.cpp
     src/rect_model.cpp
     src/rect_mesh.cpp
     )
